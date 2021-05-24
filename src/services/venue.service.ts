@@ -1,23 +1,28 @@
+import Venue from '../models/venue.model.ts'
+
 class VenueServive {
 
-    getAll() {
-
+    async getAll(): Promise<Venue[]> {
+        return await Venue.all();
     }
 
     // CRUD
-    create(body: any) {
-        
+    async create(body: any) {
+        await Venue.create(body);
+
+        return this.get(body.uuid); 
     }
 
-    get(uuid: string) {
-        
+    async get(uuid: string) {
+        return (await this.getAll()).filter(x => x.uuid === uuid)[0];
     }
 
-    update(uuid: string, venueData: any) {
+    update(uuid: string, venueData: any): Promise<Venue | Venue[]> {
+        return Venue.where('uuid', uuid).update(venueData);
     }
 
-    delete(uuid: string) {
-        
+    delete(uuid: string): Promise<Venue | Venue[]> {
+        return Venue.where('uuid', uuid).delete();
     }
 }
 
