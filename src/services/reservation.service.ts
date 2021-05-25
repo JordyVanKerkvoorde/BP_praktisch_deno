@@ -1,32 +1,48 @@
+import Reservation from '../models/reservation.model.ts';
+import { venueService } from './venue.service.ts'
+
 class ReservationService {
     
-    getAll(){
-
+    async getAll(): Promise<any[]>{
+        return await Reservation.all();
     }
 
-    getAllReservationsForVenue(venueId: string) {
-
+    async getAllReservationsForVenue(venueId: string) {
+        return (await this.getAll()).filter(x => x.venueId === venueId);
     }
 
-    getAllReservationsForUser(userId: number) {
-
+    async getAllReservationsForUser(userId: number) {
+        return (await this.getAll()).filter(x => x.userId === userId);
     }
 
-    getCurrentReservationsForTime(venueId: string, reservationStart: Date, reservationEnd: Date) {
+    async getCurrentReservationsForTime(venueId: string, reservationStart: Date, reservationEnd: Date) {
+        const reservations = await this.getAll();
+        const reservationsForVenue = reservations.filter(x => x.venueId === venueId);
+        const reservationsForDates = reservationsForVenue.filter(x => (new Date(x.reservationEnd) <= new Date(reservationEnd) && new Date(x.reservationEnd) > new Date(reservationStart)) 
+                                                                    || (new Date(x.reservationStart) >=  new Date(reservationStart) && new Date(x.reservationStart) < new Date(reservationEnd)));
 
+        return reservationsForDates;
     }
 
-    reservationIsValid(body: any) {
+    async reservationIsValid(body: any) {
+        const overlappingReservations = await this.getCurrentReservationsForTime((await venueService.get(body.venueId))?.id, body.reservationStart, body.reservationEnd);
+        const venue = await venueService.get(body.venueId);
+        const bookedSpots = overlappingReservations.reduce((acc, val) => {
+            return acc += val.spots
+        }, 0);
 
+        return venue ? (bookedSpots + body.spots) <= venue?.availableSpots : false;
     }
 
     // CRUD
-    create(body: any) {
+    async create(body: any) {
+        await Reservation.create(body);
 
+        return this.get(body.uuid); 
     }
 
-    get(uuid: string) {
-
+    async get(uuid: string) {
+        return (await this.getAll()).filter(x => x.uuid === uuid)[0];
     }
 }
 

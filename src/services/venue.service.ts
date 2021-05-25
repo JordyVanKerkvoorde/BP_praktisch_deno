@@ -2,7 +2,7 @@ import Venue from '../models/venue.model.ts'
 
 class VenueServive {
 
-    async getAll(): Promise<Venue[]> {
+    async getAll(): Promise<any[]> {
         return await Venue.all();
     }
 
@@ -13,15 +13,15 @@ class VenueServive {
         return this.get(body.uuid); 
     }
 
-    async get(uuid: string) {
+    async get(uuid: string) : Promise<any>{
         return (await this.getAll()).filter(x => x.uuid === uuid)[0];
     }
 
-    update(uuid: string, venueData: any): Promise<Venue | Venue[]> {
+    update(uuid: string, venueData: any): Promise<any> {
         return Venue.where('uuid', uuid).update(venueData);
     }
 
-    delete(uuid: string): Promise<Venue | Venue[]> {
+    delete(uuid: string): Promise<any> {
         return Venue.where('uuid', uuid).delete();
     }
 }

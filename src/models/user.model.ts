@@ -1,5 +1,6 @@
 import { Model, DataTypes } from "../../depts.ts";
 import { Roles } from "../domain/role.enum.ts";
+import { HelperFunctions } from '../utils/helper.util.ts';
 
 export default class User extends Model {
     static table = 'users';
@@ -9,12 +10,19 @@ export default class User extends Model {
     static fields = {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         uuid: DataTypes.STRING,
-        firstName: DataTypes.STRING,
-        lastName: DataTypes.STRING,
-        dateOfBirth: DataTypes.DATE,
+        firstName: { type: DataTypes.STRING, as: 'firstName' },
+        lastName: { type: DataTypes.STRING, as: 'lastName' },
+        dateOfBirth: { type: DataTypes.DATE, as: 'dateOfBirth' },
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         salt: DataTypes.STRING,
-        role: { type: DataTypes.ENUM, values: Object.values(Roles) }
+        role: { type: DataTypes.ENUM, values: Object.values(Roles) },
+        createdAt: { type: DataTypes.DATETIME, as: 'createdAt' },
+        updatedAt: { type: DataTypes.DATETIME, as: 'updatedAt' }
+    }
+
+    static defaults = {
+        createdAt: HelperFunctions.generateNewDateNow(),
+        updatedAt: HelperFunctions.generateNewDateNow()
     }
 }

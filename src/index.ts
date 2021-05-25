@@ -1,7 +1,7 @@
 import { databaseService } from './database/database.service.ts';
 
 
-databaseService.connect();
+await databaseService.connect();
 
 // export enum Roles {
 //     USER='USER',

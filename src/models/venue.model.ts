@@ -1,4 +1,6 @@
 import { Model, DataTypes } from "../../depts.ts";
+import { HelperFunctions } from '../utils/helper.util.ts';
+
 
 export default class Venue extends Model {
     static table = 'venues';
@@ -12,7 +14,14 @@ export default class Venue extends Model {
         logitude: DataTypes.FLOAT,
         latitude: DataTypes.FLOAT,
         address: DataTypes.STRING,
-        availableSpots: DataTypes.INTEGER,
-        // ownerId: DataTypes.INTEGER
+        availableSpots: { type: DataTypes.INTEGER, as: 'availableSpots' },
+        ownerId: { type: DataTypes.INTEGER, as: 'ownerId' },
+        createdAt: { type: DataTypes.DATETIME, as: 'createdAt' },
+        updatedAt: { type: DataTypes.DATETIME, as: 'updatedAt' }
+    }
+
+    static defaults = {
+        createdAt: HelperFunctions.generateNewDateNow(),
+        updatedAt: HelperFunctions.generateNewDateNow()
     }
 }

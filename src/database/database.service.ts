@@ -4,10 +4,10 @@ import User from "../models/user.model.ts";
 import Venue from "../models/venue.model.ts";
 
 class DatabaseService {
-    connect(){
+    async connect(){
         // connection options
         const connector = new MySQLConnector({
-            database: 'bp-praktisch',
+            database: 'bp-test',
             host: '127.0.0.1',
             username: 'root',
             password: 'root',
@@ -21,7 +21,7 @@ class DatabaseService {
         );
 
         // add models
-        db.link([Reservation])
+        db.link([Reservation, User, Venue])
 
         // add relationships
         // Relationships.belongsTo(Reservation, User, { foreignKey: 'userId' });
@@ -29,7 +29,7 @@ class DatabaseService {
         // Relationships.belongsTo(Venue, User, { foreignKey: 'ownerId' });
 
         // sync db
-        db.sync();
+        await db.sync();
         
     }
 }
