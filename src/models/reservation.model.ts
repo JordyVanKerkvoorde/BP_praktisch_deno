@@ -12,10 +12,10 @@ export default class Reservation extends Model {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         uuid: DataTypes.STRING,
         spots: DataTypes.INTEGER,
-        reservationStart: DataTypes.DATETIME,
-        reservationEnd: DataTypes.DATETIME,
-        venueId: DataTypes.INTEGER,
-        userId: DataTypes.INTEGER,
+        reservationStart: { type: DataTypes.DATETIME, as: 'reservationStart' },
+        reservationEnd: { type: DataTypes.DATETIME, as: 'reservationEnd' },
+        venueId: { type: DataTypes.INTEGER, as: 'venueId' },
+        userId: { type: DataTypes.INTEGER, as: 'userId' },
         createdAt: { type: DataTypes.DATETIME, as: 'createdAt' },
         updatedAt: { type: DataTypes.DATETIME, as: 'updatedAt' }
     }
