@@ -42,7 +42,7 @@ async function createUser() {
     // console.log(users)
 }
 
-// await createUser();
+await createUser();
 
 async function login() {
     await databaseService.connect();
@@ -76,4 +76,4 @@ async function addVenue() {
     console.log(user);
 }
 
-await addVenue();
+// await addVenue();

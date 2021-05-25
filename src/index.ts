@@ -1,12 +1,16 @@
 import { databaseService } from './database/database.service.ts';
-
+import { restRouter } from './rest.router.ts';
+import { Application, Router } from '../depts.ts'
+import config from './config.ts';
 
 await databaseService.connect();
 
-// export enum Roles {
-//     USER='USER',
-//     EMPLOYEE='EMPLOYEE',
-//     OWNER='OWNER'
-// }
+const app = new Application();
 
-// console.log(Object.values(Roles))
+app.use(restRouter.router().routes());
+// app.use(restRouter.router().allowedMethods());
+// app.use((ctx) => {
+//     ctx.response.body = 'hello world'
+// });
+
+await app.listen({port: config.api.port})

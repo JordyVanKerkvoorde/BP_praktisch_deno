@@ -20,3 +20,11 @@ export {
     create,
     verify
 } from "https://deno.land/x/djwt@v2.2/mod.ts";
+
+// oak - x
+export {
+    Application,
+    Router
+} from "https://deno.land/x/oak@v7.5.0/mod.ts";
+
+export type { RouterContext } from "https://deno.land/x/oak@v7.5.0/mod.ts";
