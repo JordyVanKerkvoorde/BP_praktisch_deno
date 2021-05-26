@@ -1,6 +1,6 @@
 import { userService } from '../services/user.service.ts';
 import { userMapper } from '../mappers/user.mapper.ts';
-import { RouterContext } from '../../depts.ts'
+import { RouterContext } from '../../depts.ts';
 import { OakUtils } from "../utils/oak.util.ts";
 
 class UserController {

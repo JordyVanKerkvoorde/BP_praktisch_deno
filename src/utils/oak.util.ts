@@ -9,6 +9,7 @@ export class OakUtils {
     }
 
     public static getUser(context: RouterContext): any {
-        return JSON.parse(context.cookies.get('user')!.toString());
+        let cookies: any = context.cookies;
+        return cookies.user;
     }
 }

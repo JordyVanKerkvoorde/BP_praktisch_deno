@@ -38,9 +38,6 @@ class UserService {
     }
 
     checkPassword(password: string, hash: string, salt: string) {
-        console.log(password)
-        console.log(hash)
-        console.log(salt)
         return this.hashPassword(password, salt).password === hash;
     }
 

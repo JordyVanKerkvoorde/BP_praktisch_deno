@@ -15,8 +15,9 @@ class AuthMiddleware {
                 //     user: decoded.user
                 // };
                 const decoded: any = await verify(bearer, config.jwt.secret, "HS512");
-
-                context.cookies.set('user', JSON.stringify(decoded));
+                let cookies: any = context.cookies;
+                cookies.user = decoded;
+                context.cookies = cookies;
 
                 return next();
             } else {
