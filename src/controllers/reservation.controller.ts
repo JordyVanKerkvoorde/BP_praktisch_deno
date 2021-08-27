@@ -1,8 +1,8 @@
-import { RouterContext } from "../../depts.ts";
+import { RouterContext } from "../../deps.ts";
 import { OakUtils } from "../utils/oak.util.ts";
 import { reservationService } from '../services/reservation.service.ts';
 import { venueService } from '../services/venue.service.ts';
-import { v4 as uuidv4 } from '../../depts.ts';
+import { v4 as uuidv4 } from '../../deps.ts';
 
 class ReservationController {
     // CRUD

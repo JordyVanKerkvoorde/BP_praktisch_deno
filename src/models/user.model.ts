@@ -1,4 +1,4 @@
-import { Model, DataTypes } from "../../depts.ts";
+import { Model, DataTypes } from "../../deps.ts";
 import { Roles } from "../domain/role.enum.ts";
 import { HelperFunctions } from '../utils/helper.util.ts';
 

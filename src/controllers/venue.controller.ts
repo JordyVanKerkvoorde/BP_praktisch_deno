@@ -1,7 +1,7 @@
-import { RouterContext } from "../../depts.ts";
+import { RouterContext } from "../../deps.ts";
 import { venueService } from "../services/venue.service.ts";
 import { OakUtils } from "../utils/oak.util.ts";
-import { v4 as uuidv4 } from '../../depts.ts';
+import { v4 as uuidv4 } from '../../deps.ts';
 
 class VenueController {
     async getAll(context: RouterContext) {

@@ -1,4 +1,4 @@
-import { Database, MySQLConnector, Relationships } from '../../depts.ts';
+import { Database, MySQLConnector, Relationships } from '../../deps.ts';
 import Reservation from "../models/reservation.model.ts";
 import User from "../models/user.model.ts";
 import Venue from "../models/venue.model.ts";

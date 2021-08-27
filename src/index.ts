@@ -1,6 +1,6 @@
 import { databaseService } from './database/database.service.ts';
 import { restRouter } from './rest.router.ts';
-import { Application, Router } from '../depts.ts'
+import { Application, Router } from '../deps.ts'
 import config from './config.ts';
 
 await databaseService.connect();

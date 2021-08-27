@@ -1,6 +1,5 @@
-import { RouterContext } from '../../depts.ts'
-import { OakUtils } from "../utils/oak.util.ts";
-import { verify } from '../../depts.ts'
+import { RouterContext } from '../../deps.ts'
+import { verify } from '../../deps.ts'
 import config from "../config.ts";
 
 class AuthMiddleware {

@@ -1,4 +1,4 @@
-import { RouterContext } from "../../depts.ts";
+import { RouterContext } from "../../deps.ts";
 
 export class OakUtils {
     public static async requestBody(context: RouterContext): Promise<any> {

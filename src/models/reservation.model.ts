@@ -1,4 +1,4 @@
-import { Model, DataTypes, Relationships } from "../../depts.ts";
+import { Model, DataTypes, Relationships } from "../../deps.ts";
 import User from "./user.model.ts";
 import Venue from "./venue.model.ts";
 import { HelperFunctions } from '../utils/helper.util.ts';

@@ -1,7 +1,7 @@
 import { userService } from './src/services/user.service.ts';
 import { venueService } from './src/services/venue.service.ts';
 import { databaseService } from './src/database/database.service.ts';
-import { v4 as uuidv4 } from './depts.ts';
+import { v4 as uuidv4 } from './deps.ts';
 
 function testPasswordMatching() {
     const password = 'THIS_IS_MY_PASSWORD';

@@ -1,7 +1,7 @@
-import { createHash } from "../../depts.ts";
+import { createHash } from "../../deps.ts";
 import { HelperFunctions } from '../utils/helper.util.ts';
-import { v4 as uuidv4 } from '../../depts.ts';
-import { create } from '../../depts.ts';
+import { v4 as uuidv4 } from '../../deps.ts';
+import { create } from '../../deps.ts';
 import User from "../models/user.model.ts";
 import config from '../config.ts';
 

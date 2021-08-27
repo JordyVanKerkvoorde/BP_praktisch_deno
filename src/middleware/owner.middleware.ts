@@ -1,4 +1,4 @@
-import { RouterContext } from "../../depts.ts";
+import { RouterContext } from "../../deps.ts";
 import { venueService } from "../services/venue.service.ts";
 import { OakUtils } from "../utils/oak.util.ts";
 

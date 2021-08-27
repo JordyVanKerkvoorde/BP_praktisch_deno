@@ -1,4 +1,4 @@
-import { RouterContext } from "../../depts.ts";
+import { RouterContext } from "../../deps.ts";
 import { Roles } from "../domain/role.enum.ts";
 import { OakUtils } from "../utils/oak.util.ts";
 

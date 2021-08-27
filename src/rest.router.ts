@@ -1,4 +1,4 @@
-import { Router } from '../depts.ts';
+import { Router } from '../deps.ts';
 import { reservationController } from "./controllers/reservation.controller.ts";
 import { userController } from './controllers/user.controller.ts';
 import { venueController } from "./controllers/venue.controller.ts";
